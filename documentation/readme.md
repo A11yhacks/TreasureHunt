@@ -89,3 +89,31 @@ Understanding hunt.py:
 
 Whilst the code is well commented, a breakdown of the various methods & sections of the file can be found below:
 
+We first start by importing the various modules & files that our program needs to function.
+Next we set some variables we'll be using. You will need to change iBeaconUUID, iBeaconMajor and possibly deviceID if your SBC has more than one Bluetooth adaptor. If not 0 is a sensible default.
+The packets that beacons broadcast contain many different pieces of information. To make it easier to determine which beacon we have encountered later on in the code, we have created a parsePacket method which returns a dictionary containing the various values.
+When we encounter one of our beacons we need to play the preclue sound then play the clue twice. We've put this functionality into a playClue method.
+We next perform a number of setup tasks that are required before we go any further:
+Attempt to create a socket (make a connection) to our Bluetooth adaptor
+Set some peramitors relating to the Bluetooth scanning that we'll be doing
+Make sure that the Pi is sending audio through the 3.5 audio jack & set volume to 100%
+Now that everything's been set up it's time to start playing sounds! We first play the startup sound, then we call playClue to play the introduction sound.
+We then enter a while loop where a few different things happen:
+A scan is performed, the results of which are saved ina  list called results.
+For each of our results we then:
+Parse it so we can easily work out which beacon we've encountered.
+Check if the UUID & major values of the packet match those that we set above and that the beacon we've found isn't the same one as the last one we found. If this is the case we do a number of things:
+Play a clue using the minor value of the packet to determine which clue we need to play.
+Keep track of which beacon we've just encountered.
+Shutdown the Pi if the beacon is the last one in the hunt.
+
+Creating the sounds:
+
+The activity relies on a number of different sounds in order to function:
+
+x.wav - played when a beacon with a minor value of x is encountered.
+preclue.wav - played before each clue.
+startup.wav - played when all the setup is complete.
+intro.wav - the introduction sound. In our implementation this was a clue.
+
+Use a sound recorder of your choice - E.G. Audacity to record the various sounds taking care to ensure that the names are exactly like the ones above.
