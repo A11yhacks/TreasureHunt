@@ -9,7 +9,7 @@ Checklist:
 
 A BLE beacon for each location minus the starting one. Beacons should be compatible with Apple's iBeacon standard. We have had good results using Estimote (http://www.estimote.com) beacons in iBeacon mode.
 Enough Raspberry Pi 3's, speakers & power sources (E.G. power bars) for everyone. You may be able to use other SBC's so long as you are able to use Bluetooth & run Python but some of the code is Pi-specific. NB: we had relatively good success in splitting participants into groups & giving each group a Pi, but if headphones are being used watch out for trailing wires!
-A modified treasurehunt.py (it is very unlikely that the supplied code will work out of the box for you).
+A modified hunt.py (it is very unlikely that the supplied code will work out of the box for you).
 To ensure the smooth running of the activity it would be preferable if you are able to familiarise yourself with the location beforehand (see the planning a root section below).
 
 Understanding how iBeacons work:
@@ -55,7 +55,7 @@ These steps assume that you have a working Raspbian install & you are reasonably
 4. Copy all of the sounds into the directory in step 1.
 We now need to make hunt.py run when the Pi boots. To do this:
 5. Run
-raspi-config
+sudo raspi-config
 Choose option 3 then b4.
 6. Edit
 /home/pi/.config/lxsession/LXDE-pi/autostart 
@@ -74,15 +74,15 @@ We found that a treasure hunt that contained 11 clues took just over 5 hours of 
 python debug.py
 and consult the output.
 This script is a minimal version of the treasure hunt which, as the name implies, is designed for debugging your root. When a beacon is in range its major & minor values are printed, although if multiple packets are received in a ro from one beacon only the first is displayed. If you have modified a given beacon and wish to test its range again, you will need to walk to the sight of another beacon then walk back to the original one. The Shutdown functionality has not been implemented in this script.
-3. Walk your root taking care to pass the clues in the same order that the participants will do whilst checking that you are happy with the performance of the beacons. Pay particular attention to scenarios where 2 beacons are close to each other, consulting the output from the Pi to make sure that it is not possible for both of them to be detected at the same time. If this does happen, experiment with repositioning one of the beacons slightly - E.G. high up, low down, inside a cupboard, behind a door etc.  We found the Estimote companion app useful for modifying the range of individual beacons on the go for scenarios where "3 feet" was actually considerably less due to the environment. Please also be mindful of scenarios where participants may pass a clue on root to another one - E.G. try to avoid clue 5 sounding when participants are on their way to clue 2.
-4. Once you're happy with everything you will have most likely walked the root a large number of times and will have started to question why you committed to do the activity in the first place. Never the less, it is important to carry out one last check by starting at the beginning & walking it through to confirm that no more adjustments need to be made. Keep on doing this until you can walk the root without changing anything.
+3. Walk your root taking care to pass the clues in the same order that the participants will do whilst checking that you are happy with the performance of the beacons. Pay particular attention to scenarios where 2 beacons are close to each other, consulting the output from the Pi to make sure that it is not possible for both of them to be detected at the same time. If this does happen, experiment with repositioning one of the beacons slightly - E.G. high up, low down, inside a cupboard, behind a door etc. Please also be mindful of scenarios where participants may pass a clue on root to another one - E.G. try to avoid clue 5 sounding when participants are on their way to clue 2. We found the Estimote companion app useful for modifying the range of individual beacons on the go for scenarios where "3 feet" was actually considerably less due to the environment.
+4. Once you're happy with everything you will have most likely walked the root a large number of times and will have started to question why you committed to doing the activity in the first place. Never the less, it is important to carry out one last check by starting at the beginning & walking it through to confirm that no more adjustments need to be made. Keep on doing this until you can walk the root without changing anything.
 
 Supplied .py files:
 
 3 .py files are supplied with this activity:
 
 bluescan.py - methods to scan for nearby BLE devices. Participants need not concern themselves with the content of this file.
-debug.py - a minimal implementation of the treasure hunt activity for debugging purposes.a
+debug.py - a minimal implementation of the treasure hunt activity for debugging purposes.
 hunt.py - the main treasure hunt file that participants should modify.
 
 Understanding hunt.py:
