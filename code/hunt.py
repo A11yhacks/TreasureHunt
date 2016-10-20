@@ -68,6 +68,6 @@ while True:
     print(parsed["minor"])
     playClue(parsed["minor"])
     lastEncounterediBeacon=parsed["minor"]
-    if str(id) == "12": os.system("sudo shutdown now")
+    if parsed["minor"] == "12": os.system("sudo shutdown now")
   except:
    pass
