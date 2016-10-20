@@ -9,10 +9,10 @@ import sys
 import bluetooth._bluetooth as bluez
 
 #Set all the variables we'll be using
-devID=0 #The ID of the Bluetooth device we'll be using minus hci. To get this run hciconfig and look for hci0, hci1 etc. Should always be hci0 unless you have more than one device
+deviceID=0 #The ID of the Bluetooth device we'll be using minus hci. To get this run hciconfig and look for hci0, hci1 etc. Should always be hci0 unless you have more than one device
 iBeaconUUID="b9407f30f5f8466eaff925556b57fe6d" #The UUID of your iBeacons not including any dashes that may be present
 lastEncounterediBeacon="" #Keep track of the last iBeacon we encounted to prevent a scenario where we play the clue multiple times
-iBeaconMajor="1000" #The major ID of your beacons (has to be a string otherwise just convert it later
+iBeaconMajor="1000" #The major ID of your beacons (has to be a string otherwise just convert it later)
 
 #Each beacon broadcasts several pieces of information which we're interested in. This method helps separate them out
 #Todo: better exception handling
@@ -41,7 +41,7 @@ def playClue(id):
 
 #Try to create a socket
 try:
- sock = bluez.hci_open_dev(devID)
+ sock = bluez.hci_open_dev(deviceID)
  #print("Success")
 except:
  print "error accessing bluetooth device..."
