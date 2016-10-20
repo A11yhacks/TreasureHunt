@@ -47,16 +47,17 @@ Change the major & minor values as per your requirements.
 
 Setting up a Pi:
 
-These steps assume that you have a working Raspbian install & you are reasonably familiar with how it operates. Steps 1 and 2 should be completed before you carry out the steps in the "planning a root" section. Steps 4 & 5 should only be performed when you are happy with your root & you have modified hunt.py to work with your setup.
+These steps assume that you have a working Raspbian install & you are reasonably familiar with how it operates. Steps 1, 2 and 3 should be completed before you carry out the steps in the "planning a root" section. Steps 5 & 6 should only be performed when you are happy with your root & you have modified hunt.py to work with your setup.
 
 1. Copy the 3 .py files to a sensible location.
 2. For debugging during the planning a root section we highly recommend you connect the Pi to a wireless network.
-3. Copy all of the sounds into the directory in step 1.
+3. Install dependencies (need to figure out what dependencies we installed)
+4. Copy all of the sounds into the directory in step 1.
 We now need to make hunt.py run when the Pi boots. To do this:
-4. Run
+5. Run
 raspi-config
 choose option 3 then b4.
-5. Edit
+6. Edit
 /home/pi/.config/lxsession/LXDE-pi/autostart 
 where pi is the name of your user account. You will need to sudo to modify this file.
 add the following line:
@@ -85,4 +86,6 @@ debug.py - a minimal implementation of the treasure hunt activity for debuggin p
 hunt.py - the main treasure hunt file that partisipants should modify.
 
 Understanding hunt.py:
+
+Whilst the code is well commented, a breakdown of the various methods & sections of the file can be found below:
 
