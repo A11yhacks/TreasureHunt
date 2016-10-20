@@ -42,9 +42,9 @@ def playClue(id):
 #Try to create a socket
 try:
  sock = bluez.hci_open_dev(deviceID)
- #print("Success")
+ print("Socket created successfully!")
 except:
- print "error accessing bluetooth device..."
+ print("error accessing bluetooth device! Have you set deviceID correctly? Can not continu.")
  sys.exit(1)
 
 #Set everything up in preperation for performing the scan
