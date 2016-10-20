@@ -30,7 +30,7 @@ def parsePacket(packet):
  else:
   return outputToReturn
 
-#Play a clue sound & if we've reached the end of the hunt shut the pi down
+#Play a clue sound
 def playClue(id):
  try:
   os.system("aplay preclue.wav > /dev/null 2>&1")
@@ -38,7 +38,6 @@ def playClue(id):
   os.system("aplay "+str(id)+".wav > /dev/null 2>&1")
  except:
   pass
- if str(id) == "12": os.system("sudo shutdown now")
 
 #Try to create a socket
 try:
@@ -71,5 +70,6 @@ while True:
     print(parsed["minor"])
     playClue(parsed["minor"])
     lastEncounterediBeacon=parsed["minor"]
+    if str(id) == "12": os.system("sudo shutdown now")
   except:
    pass
