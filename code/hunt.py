@@ -57,9 +57,7 @@ os.system("amixer set \"PCM\",0 100% > /dev/null 2>&1")
 
 #Play the introduction sound and the first clue
 os.system("aplay ttsintro.wav > /dev/null 2>&1")
-os.system("aplay preclue.wav > /dev/null 2>&1")
-os.system("aplay intro.wav > /dev/null 2>&1")
-os.system("aplay intro.wav > /dev/null 2>&1")
+playClue("intro")
 
 while True:
  results=blescan.parse_events(sock, 10) #socket, maxNumberOfResults (default is 100)
