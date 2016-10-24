@@ -30,15 +30,6 @@ def parsePacket(packet):
  else:
   return outputToReturn
 
-#Play a clue sound
-def playClue(id):
- try:
-  os.system("aplay preclue.wav > /dev/null 2>&1")
-  os.system("aplay "+str(id)+".wav > /dev/null 2>&1")
-  os.system("aplay "+str(id)+".wav > /dev/null 2>&1")
- except:
-  pass
-
 #Try to create a socket
 try:
  sock = bluez.hci_open_dev(deviceID)
@@ -51,23 +42,13 @@ except:
 blescan.hci_le_set_scan_parameters(sock)
 blescan.hci_enable_le_scan(sock)
 
-#Make sure that we're sending audio via the 3.5 jack and that volume is at 100%
-os.system("amixer cset numid=3 1 > /dev/null 2>&1")
-os.system("amixer set \"PCM\",0 100% > /dev/null 2>&1")
-
-#Play the introduction sound and the first clue
-os.system("aplay startup.wav > /dev/null 2>&1")
-playClue("intro")
-
 while True:
  results=blescan.parse_events(sock, 10) #socket, maxNumberOfResults (default is 100)
  for packet in results:
   parsed=parsePacket(packet)
   try:
    if parsed["UUID"] == iBeaconUUID and parsed["major"] == iBeaconMajor and parsed["minor"] != lastEncounterediBeacon: #If we've encountered an Estimote iBeacon that has our major Id but is not the last one we delt with
-    print(parsed["minor"])
-    playClue(parsed["minor"])
+    print("Found major: %s minor %s" % (parsed["major"], parsed["minor"]))
     lastEncounterediBeacon=parsed["minor"]
-    if parsed["minor"] == "12": os.system("sudo shutdown now")
   except:
    pass
