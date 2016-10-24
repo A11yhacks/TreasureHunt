@@ -93,7 +93,7 @@ Whilst the code is well commented, a breakdown of the various methods & sections
   3. Make sure that the Pi is sending audio through the 3.5 audio jack & set volume to 100%
 6. Now that everything's been set up it's time to start playing sounds! We first play the startup sound, then we call playClue to play the introduction sound.
 7. We then enter a while loop where a few different things happen:
-  1. A scan is performed, the results of which are saved ina  list called results.
+  1. A scan is performed, the results of which are saved in a list called results.
   2. For each of our results we then:
     1. Parse it so we can easily work out which beacon we've encountered.
     2. Check if the UUID & major values of the packet match those that we set above and that the beacon we've found isn't the same one as the last one we found. If this is the case we do a number of things:
