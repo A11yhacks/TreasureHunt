@@ -48,7 +48,7 @@ while True:
   parsed=parsePacket(packet)
   try:
    if parsed["UUID"] == iBeaconUUID and parsed["major"] == iBeaconMajor and parsed["minor"] != lastEncounterediBeacon: #If we've encountered an Estimote iBeacon that has our major Id but is not the last one we delt with
-    print("Found major: %s minor %s" % (parsed["major"], parsed["minor"]))
+    print("Found major %s minor %s" % (parsed["major"], parsed["minor"]))
     lastEncounterediBeacon=parsed["minor"]
   except:
    pass
