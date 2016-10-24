@@ -33,6 +33,7 @@ Suppose you are a supermarket chain who wishes to provide an app-based indoor na
 * UUID represents your chain.
 * Major represents a given supermarket.
 * Minor represents an isle within a supermarket.
+
 Note that in this instance minor values would not have to be exclusive across supermarkets so long as the combination of the UUID, major & minor values are able to uniquely identify a beacon.
 
 As you may have surmised, the iBeacon standard is well-suited to larger role outs and is rather overkill for this activity. For our implementation we chose consistent UUID & major values, but if your location has multiple floors for example, there is no reason why major could not denote a floor & minor a specific location on said floor.
