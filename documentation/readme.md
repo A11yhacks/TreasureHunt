@@ -8,7 +8,7 @@ Automatic shutdown when a given beacon is encountered to prevent file system cor
 Checklist:
 
 A BLE beacon for each location minus the starting one. Beacons should be compatible with Apple's iBeacon standard. We have had good results using Estimote (http://www.estimote.com) beacons in iBeacon mode.
-Enough Raspberry Pi 3's, speakers & power sources (E.G. power bars) for everyone. You may be able to use other SBC's so long as you are able to use Bluetooth & run Python but some of the code is Pi-specific. NB: we had relatively good success in splitting participants into groups & giving each group a Pi, but if headphones are being used watch out for trailing wires!
+Enough Raspberry Pi 3's, speakers & power sources (E.G. power bars) for everyone. You may be able to use other SBC's so long as you are able to use Bluetooth & run Python but some of the code is Raspbian-specific. Older Pis should also work so long as a Bluetooth adaptor is present. NB: we had relatively good success in splitting participants into groups & giving each group a Pi, but if headphones are being used watch out for trailing wires!
 A modified hunt.py (it is very unlikely that the supplied code will work out of the box for you).
 To ensure the smooth running of the activity it would be preferable if you are able to familiarise yourself with the location beforehand (see the planning a root section below).
 
