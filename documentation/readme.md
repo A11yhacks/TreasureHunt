@@ -44,8 +44,8 @@ The following steps are based on our experiences with Estimote beacons but the s
 1. Change the name of all of your beacons to something sensible. We chose Beacon1, Beacon2, ... Beacon11, Beacon12. Note that these names are only used internally & aren't transmitted in advertising packets. Estimote lets you do this via their app or the cloud control panel.
 2. Take each beacon & write its name on it for easy identification later. We found the best way to do this was to move a beacon away from the rest of the beacons then use the Estimote app to show nearby beacons.
 3. For each beacon you should additionally:
-* Decrease its range. Estimote lets you specify the broadcast power as a percentage or in feet - we found that 0 percent (3 feet) was a sensible starting range.
-* Change the major & minor values as per your requirements.
+  1. Decrease its range. Estimote lets you specify the broadcast power as a percentage or in feet - we found that 0 percent (3 feet) was a sensible starting range.
+  2. Change the major & minor values as per your requirements.
 
 ##Setting up a Pi:
 
@@ -55,10 +55,8 @@ These steps assume that you have a working Raspbian install & you are reasonably
 2. For debugging during the planning root sections we highly recommend you connect the Pi to a wireless network.
 3. Install dependencies (need to figure out what dependencies we installed)
 4. Copy all of the sounds into the directory in step 1.
-We now need to make hunt.py run when the Pi boots. To do this:
-5. Run `sudo raspi-config` Choose option 3 then b4.
+5. We now need to make hunt.py run when the Pi boots. To do this run `sudo raspi-config` Choosing options 3 then b4.
 6. Edit `/home/pi/.config/lxsession/LXDE-pi/autostart` Where pi is the name of your user account. You will need to `sudo` to modify this file. Add the following line: `xxxx (need to confirm this)`
-The setup on the Pi is now complete.
 
 ##Planning a root:
 
