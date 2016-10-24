@@ -53,7 +53,9 @@ These steps assume that you have a working Raspbian install & you are reasonably
 
 1. Copy the 3 .py files to a sensible location.
 2. For debugging during the planning root sections we highly recommend you connect the Pi to a wireless network.
-3. Install dependencies (need to figure out what dependencies we installed)
+3. Run the following commands to install dependencies:
+  1. `sudo apt-get update`
+  2. `sudo apt-get install python-bluez`
 4. Copy all of the sounds into the directory in step 1.
 5. We now need to make hunt.py run when the Pi boots. To do this run `sudo raspi-config` Choosing options 3 then b4.
 6. Edit `/home/pi/.config/lxsession/LXDE-pi/autostart` Where pi is the name of your user account. You will need to `sudo` to modify this file. Add the following line: `xxxx (need to confirm this)`
