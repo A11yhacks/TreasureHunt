@@ -1,1 +1,1 @@
-A11yhacks Treasure Hunt Activity
+A11yhacks Treasure Hunt Activity.
